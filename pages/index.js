@@ -4,6 +4,7 @@ import Error from "next/error";
 import StoryList from "../components/StoryList";
 import Layout from "../components/Layout";
 import Link from "next/link";
+import axios from 'axios';
 
 class Index extends Component {
   static async getInitialProps({ req, res, query }) {
@@ -11,10 +12,8 @@ class Index extends Component {
     let page;
     try {
       page = parseInt(query.page) || 1;
-      const res = await fetch(
-        `https://node-hnapi.herokuapp.com/news?page=${page}`
-      );
-      stories = await res.json();
+      const { data } = await axios.get(`https://node-hnapi.herokuapp.com/news?page=${page}`);
+      stories = data;
     } catch (err) {
       console.log(err);
       stories = [];

@@ -13,6 +13,7 @@
   "author": "Mrinal Mitra",
   "license": "ISC",
   "dependencies": {
+    "axios": "^0.21.1",
     "isomorphic-fetch": "^3.0.0",
     "next": "^10.0.5",
     "react": "^17.0.1",
